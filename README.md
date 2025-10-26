@@ -23,7 +23,8 @@ The website is hosted using **GitHub Pages** for easy online access.
 ---
 
 ## 📂 Project Structure
-portfolio/
+portfolio
+
 │── index.html        
 │── styles.css        
 │── script.js 
