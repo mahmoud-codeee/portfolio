@@ -4,37 +4,134 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Mahmoud Saad | Front-end Developer</title>
+    <meta
+      name="description"
+      content="Mahmoud Saad - Front-end Developer Portfolio showcasing projects, skills, and certificates."
+    />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="favicon.ico" />
+
+    <!-- AOS CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+      rel="stylesheet"
+    />
   </head>
+
   <body>
     <header class="hero">
       <div class="hero-content">
         <h1 class="name">Mahmoud Saad</h1>
-        <p class="role">Front-end Developer (HTML • CSS • JavaScript)</p>
-        <a href="#projects" class="btn">View Projects</a>
+        <p class="role">
+          Front End Developer | Software Engineering Graduate | GPA 3.9 | Dean’s
+          List
+        </p>
+        <a href="#projects" class="btn" aria-label="View Projects Section"
+          >View Projects</a
+        >
       </div>
     </header>
 
     <main>
-      <section class="section about" id="about">
+      <!-- ABOUT -->
+      <section class="section about" id="about" data-aos="fade-up">
         <h2>About Me</h2>
         <p>
-          Computer Science graduate passionate about building clean and
-          interactive user interfaces. Always learning, improving, and building
-          new ideas.
+          Front-end developer and Software Engineering graduate from Muscat
+          College, affiliated with the University of Malaysia Pahang Al-Sultan
+          Abdullah (UMPSA). Graduated with a GPA of 3.9 / 4.0 and ranked 1st on
+          the Dean’s List.
         </p>
+
+        <p>
+          I have a strong foundation in web development and a passion for
+          building clean, responsive, and user-friendly interfaces.
+        </p>
+
         <div class="skills">
-          <span>HTML5</span><span>CSS3</span><span>JavaScript</span
-          ><span>Responsive Design</span><span>Git & GitHub</span>
+          <span>HTML5</span>
+          <span>CSS3</span>
+          <span>JavaScript (ES6+)</span>
+          <span>Responsive Design</span>
+          <span>Git & GitHub</span>
         </div>
       </section>
 
-      <section class="section" id="projects">
+      <!-- CERTIFICATES -->
+      <section
+        class="section certificates"
+        id="certificates"
+        data-aos="fade-up"
+      >
+        <h2>Certificates & Achievements</h2>
+
+        <div class="certificates-list">
+          <div class="certificate">
+            <h3>Git & GitHub Basics</h3>
+            <p>School Learning Platform</p>
+            <span>2025</span>
+            <figure>
+              <img
+                src="images/Git & GitHub.jpg"
+                alt="Git & GitHub certificate"
+                loading="lazy"
+              />
+              <figcaption>Git & GitHub Basics Certificate</figcaption>
+            </figure>
+          </div>
+
+          <div class="certificate">
+            <h3>RPA Academy</h3>
+            <p>INTRO Technology</p>
+            <span>December 2025</span>
+            <figure>
+              <img
+                src="images/RPA.png"
+                alt="RPA Academy certificate"
+                loading="lazy"
+              />
+              <figcaption>RPA Academy Certificate</figcaption>
+            </figure>
+          </div>
+
+          <div class="certificate">
+            <h3>UiPath Academy - 1</h3>
+            <p>UiPath Academy</p>
+            <span>November 2025</span>
+            <figure>
+              <img
+                src="images/UiPath-1.png"
+                alt="UiPath Academy Certificate 1"
+                loading="lazy"
+              />
+              <figcaption>UiPath Academy Certificate 1</figcaption>
+            </figure>
+          </div>
+
+          <div class="certificate">
+            <h3>UiPath Academy - 2</h3>
+            <p>UiPath Academy</p>
+            <span>November 2025</span>
+            <figure>
+              <img
+                src="images/UiPath-2.png"
+                alt="UiPath Academy Certificate 2"
+                loading="lazy"
+              />
+              <figcaption>UiPath Academy Certificate 2</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section class="section" id="projects" data-aos="fade-up">
         <h2>Projects</h2>
         <div class="project-grid" id="projectGrid"></div>
       </section>
 
-      <section class="section contact" id="contact">
+      <!-- CONTACT -->
+      <section class="section contact" id="contact" data-aos="fade-up">
         <h2>Contact</h2>
         <p>
           Email:
@@ -44,16 +141,31 @@
         </p>
         <p>
           GitHub:
-          <a href="https://github.com/mahmoud-codeee" target="_blank"
+          <a
+            href="https://github.com/mahmoud-codeee"
+            target="_blank"
+            rel="noopener noreferrer"
             >github.com/mahmoud-codeee</a
           >
         </p>
       </section>
+
       <footer class="footer">
         <p>© 2025 Mahmoud Saad. All Rights Reserved.</p>
       </footer>
     </main>
 
+    <!-- Your existing script.js file reference -->
     <script src="script.js"></script>
+
+    <!-- AOS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800,
+        easing: "ease-in-out",
+        once: true,
+      });
+    </script>
   </body>
 </html>
