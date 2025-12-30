@@ -290,3 +290,118 @@ body.light {
 [data-aos="fade-down"].aos-animate {
   transform: translateY(0);
 }
+
+/*GRADUATION SLIDER*/
+
+.graduation {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.graduation-text {
+  max-width: 650px;
+  margin: 0 auto 30px;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text);
+  opacity: 0.9;
+}
+
+/* Slider Container */
+.slider-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Slider Glass Card */
+.slider {
+  width: 100%;
+  max-width: 720px;
+  height: 420px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: var(--glass);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.45);
+  position: relative;
+}
+
+/* Slides */
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateX(40px) scale(0.98);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  z-index: 1;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+/* Navigation Buttons */
+.slider-btn {
+  position: absolute;
+  background: var(--glass);
+  color: var(--accent);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  font-size: 1.8rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 2;
+}
+
+.slider-btn:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+}
+
+.slider-btn.prev {
+  left: -20px;
+}
+
+.slider-btn.next {
+  right: -20px;
+}
+
+/* Light mode compatibility */
+body.light .slider {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .slider {
+    height: 300px;
+  }
+
+  .slider-btn.prev {
+    left: 5px;
+  }
+
+  .slider-btn.next {
+    right: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slider {
+    height: 240px;
+  }
+}
