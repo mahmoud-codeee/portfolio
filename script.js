@@ -1,46 +1,88 @@
+/* =========================
+   THEME TOGGLE
+========================= */
+const toggleBtn = document.getElementById("themeToggle");
+const body = document.body;
+
+if (toggleBtn) {
+  // Load saved theme
+  if (localStorage.getItem("theme") === "light") {
+    body.classList.add("light");
+    toggleBtn.textContent = "☀️";
+  }
+
+  toggleBtn.addEventListener("click", () => {
+    body.classList.toggle("light");
+
+    if (body.classList.contains("light")) {
+      localStorage.setItem("theme", "light");
+      toggleBtn.textContent = "☀️";
+    } else {
+      localStorage.setItem("theme", "dark");
+      toggleBtn.textContent = "🌙";
+    }
+  });
+}
+
+/* =========================
+   PROJECTS DATA
+========================= */
 const projectData = [
   {
     title: "Pig Game",
-    desc: "A simple dice game.",
-    link: "https://mahmoud-codeee.github.io/pig-game/",
+    desc: "A fun dice game built with JavaScript and DOM manipulation.",
+    tech: ["HTML", "CSS", "JavaScript"],
+    live: "https://mahmoud-codeee.github.io/pig-game/",
+    github: "https://github.com/mahmoud-codeee/pig-game",
   },
   {
-    title: "Task Manager (JS)",
-    desc: "Add, delete and track tasks using LocalStorage.",
-    link: " https://mahmoud-codeee.github.io/task-manager-soft-ui/",
+    title: "Task Manager",
+    desc: "Task management app with LocalStorage and filtering.",
+    tech: ["HTML", "CSS", "JavaScript"],
+    live: "https://mahmoud-codeee.github.io/task-manager-soft-ui/",
+    github: "https://github.com/mahmoud-codeee/task-manager-soft-ui",
   },
   {
-    title: "Interactive Game (DOM)",
-    desc: "Simple game showing DOM interactions.",
-    link: " https://mahmoud-codeee.github.io/guess-my-number/",
+    title: "Guess My Number",
+    desc: "Interactive guessing game with score tracking.",
+    tech: ["HTML", "CSS", "JavaScript"],
+    live: "https://mahmoud-codeee.github.io/guess-my-number/",
+    github: "https://github.com/mahmoud-codeee/guess-my-number",
   },
 ];
 
+/* =========================
+   RENDER PROJECTS
+========================= */
 const container = document.getElementById("projectGrid");
-container.innerHTML = ""; // Clear existing content
 
-projectData.forEach((p) => {
-  const hasLink = p.link && p.link !== "#";
+if (container) {
+  container.innerHTML = "";
 
-  if (hasLink) {
-    container.innerHTML += `
-            <a href="${p.link}" target="_blank" rel="noopener noreferrer" class="project-card-link" data-aos="fade-up">
-              <div class="project-card">
-                <h3>${p.title}</h3>
-                <p>${p.desc}</p>
-                <span class="view-link">View on GitHub</span>
-              </div>
-            </a>
-          `;
-  } else {
-    container.innerHTML += `
-            <div class="project-card no-link" data-aos="fade-up">
-              <h3>${p.title}</h3>
-              <p>${p.desc}</p>
-              <span class="coming-soon">Coming soon</span>
-            </div>
-          `;
+  projectData.forEach((p) => {
+    const card = document.createElement("div");
+    card.className = "project-card";
+    card.setAttribute("data-aos", "fade-up");
+
+    card.innerHTML = `
+      <h3>${p.title}</h3>
+      <p>${p.desc}</p>
+
+      <div class="tech-stack">
+        ${p.tech.map((t) => `<span>${t}</span>`).join("")}
+      </div>
+
+      <div class="project-links">
+        <a href="${p.live}" target="_blank" rel="noopener noreferrer">Live</a>
+        <a href="${p.github}" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    `;
+
+    container.appendChild(card);
+  });
+
+  // Refresh AOS after dynamic content
+  if (typeof AOS !== "undefined") {
+    AOS.refresh();
   }
-});
-
-AOS.refresh();
+}
