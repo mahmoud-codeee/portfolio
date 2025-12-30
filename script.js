@@ -86,3 +86,84 @@ if (container) {
     AOS.refresh();
   }
 }
+
+/* =========================
+   GRADUATION SLIDER (WITH TEXT)
+========================= */
+const slides = document.querySelectorAll(".slide");
+const prevBtn = document.querySelector(".slider-btn.prev");
+const nextBtn = document.querySelector(".slider-btn.next");
+const graduationText = document.getElementById("graduationText");
+
+const slideTexts = [
+  "Graduating with pride after years of dedication, discipline, and continuous learning in Software Engineering.",
+  "Honored to graduate with a GPA of 3.9 and ranked 1st on the Dean’s List — a milestone that reflects consistency and hard work.",
+  "Graduation day 🎓 Feeling proud, grateful, and motivated for the road ahead.",
+  "A proud moment marking academic achievement and perseverance.",
+  "Sitting back and taking in the moment.",
+  "A moment worth smiling for—hard work behind me, new goals ahead.",
+  "A proud moment worth remembering.",
+];
+
+let currentSlide = 0;
+
+/* Show slide + text */
+function showSlide(index) {
+  slides.forEach((slide) => slide.classList.remove("active"));
+  slides[index].classList.add("active");
+
+  if (graduationText) {
+    graduationText.textContent = slideTexts[index];
+  }
+}
+
+/* Next / Prev */
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+}
+
+function prevSlide() {
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  showSlide(currentSlide);
+}
+
+/* Init slider */
+if (slides.length && graduationText) {
+  showSlide(currentSlide);
+}
+
+/* Button events */
+if (nextBtn && prevBtn) {
+  nextBtn.addEventListener("click", nextSlide);
+  prevBtn.addEventListener("click", prevSlide);
+}
+
+/* =========================
+   TOUCH SWIPE (MOBILE)
+========================= */
+let startX = 0;
+let endX = 0;
+const slider = document.querySelector(".slider");
+
+if (slider) {
+  slider.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  slider.addEventListener("touchend", (e) => {
+    endX = e.changedTouches[0].clientX;
+    handleSwipe();
+  });
+}
+
+function handleSwipe() {
+  const threshold = 50;
+  const diff = startX - endX;
+
+  if (diff > threshold) {
+    nextSlide();
+  } else if (diff < -threshold) {
+    prevSlide();
+  }
+}
