@@ -405,3 +405,79 @@ body.light .slider {
     height: 240px;
   }
 }
+@media (max-width: 480px) {
+  .graduation-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    padding: 0 10px;
+  }
+}
+/* Slider Counter */
+.slider-counter {
+  margin-bottom: 12px;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  color: var(--text);
+  opacity: 0.75;
+  text-align: center;
+}
+/* Light mode refinement */
+body.light .slider-counter {
+  opacity: 0.85;
+}
+/* Contact Actions */
+.contact-actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* Outline button */
+.btn.outline {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+
+.btn.outline:hover {
+  background: var(--accent);
+  color: #000;
+}
+.theme-toggle {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.theme-toggle.animate {
+  transform: rotate(180deg) scale(1.15);
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.6);
+}
+.open-to-opportunities {
+  max-width: 700px;
+  margin: 40px auto;
+  text-align: center;
+  color: var(--text);
+}
+
+.open-to-opportunities h2 {
+  color: var(--accent);
+  margin-bottom: 15px;
+}
+
+.open-to-opportunities p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.open-to-opportunities a {
+  color: var(--accent);
+  text-decoration: underline;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.open-to-opportunities a:hover {
+  color: #000;
+}
