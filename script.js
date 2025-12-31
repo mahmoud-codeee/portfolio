@@ -3,6 +3,8 @@
 ========================= */
 const toggleBtn = document.getElementById("themeToggle");
 const body = document.body;
+const sliderCounter = document.getElementById("sliderCounter");
+
 
 if (toggleBtn) {
   // Load saved theme
@@ -14,6 +16,9 @@ if (toggleBtn) {
   toggleBtn.addEventListener("click", () => {
     body.classList.toggle("light");
 
+    toggleBtn.classList.add("animate");
+    setTimeout(() => toggleBtn.classList.remove("animate"), 400);
+
     if (body.classList.contains("light")) {
       localStorage.setItem("theme", "light");
       toggleBtn.textContent = "☀️";
@@ -22,6 +27,7 @@ if (toggleBtn) {
       toggleBtn.textContent = "🌙";
     }
   });
+
 }
 
 /* =========================
@@ -115,7 +121,12 @@ function showSlide(index) {
   if (graduationText) {
     graduationText.textContent = slideTexts[index];
   }
+
+  if (sliderCounter) {
+    sliderCounter.textContent = `${index + 1} / ${slides.length}`;
+  }
 }
+
 
 /* Next / Prev */
 function nextSlide() {
